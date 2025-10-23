@@ -15,6 +15,20 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+// AureonCapital Glass Card variant
+function GlassCard({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="glass-card"
+      className={cn(
+        "bg-aureon-glass backdrop-blur-glass border border-white/20 text-aureon-white flex flex-col gap-6 rounded-xl py-6 shadow-glass transition-all duration-300 hover:bg-white/15 hover:shadow-glass",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -83,6 +97,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 
 export {
   Card,
+  GlassCard,
   CardHeader,
   CardFooter,
   CardTitle,

@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
+import { inter, satoshi } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "AureonCapital - Investir dans l'intelligence du futur",
@@ -21,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="dark">
       <body
-        className={`${inter.variable} font-sans antialiased`}
+        className={`${inter.variable} ${satoshi.variable} font-sans antialiased`}
       >
         {children}
       </body>

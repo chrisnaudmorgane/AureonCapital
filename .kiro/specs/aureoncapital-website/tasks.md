@@ -13,20 +13,33 @@
   - Configure TypeScript and ESLint
   - _Requirements: 5.1, 5.3, 6.5_
 
-- [ ] 2. Set up design system and typography
-  - [ ] 2.1 Configure custom fonts (Satoshi and Inter)
+- [x] 2. Set up design system and typography
+
+
+
+
+
+
+
+  - [x] 2.1 Configure custom fonts (Satoshi and Inter)
+
+
     - Download and integrate Satoshi and Inter font files
     - Set up font loading optimization with Next.js
     - Configure font fallbacks in Tailwind
     - _Requirements: 1.5, 5.4_
   
-  - [ ] 2.2 Implement design tokens and color system
+  - [x] 2.2 Implement design tokens and color system
+
+
     - Create design tokens configuration file
     - Extend Tailwind config with AureonCapital color palette
     - Set up CSS custom properties for dynamic theming
     - _Requirements: 1.4, 6.1_
   
-  - [ ] 2.3 Create base UI components with ShadCN
+  - [x] 2.3 Create base UI components with ShadCN
+
+
     - Install and configure ShadCN UI components (Button, Card, Input, Form)
     - Customize component styles to match brand colors
     - Implement glass morphism effect utilities
