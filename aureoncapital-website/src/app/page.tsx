@@ -2,6 +2,7 @@ import { MainLayout } from "@/components/layout/main-layout";
 import { HeroSection } from "@/components/sections/hero-section";
 import { VisionSection } from "@/components/sections/vision-section";
 import { InvestmentDomainsSection } from "@/components/sections/investment-domains-section";
+import { PortfolioSection } from "@/components/sections/portfolio-section";
 import { GlassCard } from "@/components/ui/card";
 import { createTypography } from "@/lib/glass-effects";
 
@@ -17,14 +18,8 @@ export default function Home() {
       {/* Investment Domains Section */}
       <InvestmentDomainsSection />
 
-      <section id="portfolio" className="min-h-screen flex items-center justify-center bg-background/50">
-        <div className="container mx-auto px-4 py-16 text-center">
-          <h2 className={createTypography("h2", "aureon-text-gradient mb-8")}>Projets Soutenus</h2>
-          <p className={createTypography("bodyLarge", "text-muted-foreground")}>
-            Section Portfolio - À implémenter dans les prochaines tâches
-          </p>
-        </div>
-      </section>
+      {/* Portfolio Section */}
+      <PortfolioSection />
 
       <section id="contact" className="min-h-screen flex items-center justify-center bg-background">
         <div className="container mx-auto px-4 py-16 text-center">
