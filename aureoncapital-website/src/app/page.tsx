@@ -1,86 +1,110 @@
+import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import { GlassCard } from "@/components/ui/card";
 import { GlassInput } from "@/components/ui/input";
-import { createTypography, createGlassEffect, createAnimation } from "@/lib/glass-effects";
+import { createTypography } from "@/lib/glass-effects";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <main className="container mx-auto px-4 py-16">
-        <div className="text-center space-y-8">
-          <h1 className={createTypography("h1", "aureon-text-gradient")}>
-            AureonCapital
-          </h1>
-          <p className={createTypography("bodyLarge", "text-muted-foreground max-w-2xl mx-auto")}>
-            Investir dans l&apos;intelligence du futur
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="gold">
-              Découvrir nos investissements
-            </Button>
-            <Button size="lg" variant="outline-blue">
-              Rejoindre le portefeuille
-            </Button>
+    <MainLayout>
+      {/* Hero Section */}
+      <section id="hero" className="min-h-screen flex items-center justify-center bg-background text-foreground">
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center space-y-8">
+            <h1 className={createTypography("h1", "aureon-text-gradient")}>
+              Investir dans l&apos;intelligence du futur
+            </h1>
+            <p className={createTypography("bodyLarge", "text-muted-foreground max-w-2xl mx-auto")}>
+              AureonCapital, filiale d&apos;investissement d&apos;Aureon AI Group, investit dans l&apos;avenir de l&apos;intelligence artificielle et des technologies innovantes.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="gold">
+                Découvrir nos investissements
+              </Button>
+              <Button size="lg" variant="outline-blue">
+                Rejoindre le portefeuille
+              </Button>
+            </div>
           </div>
-          
-          {/* Design System Test Card */}
-          <GlassCard className="p-8 max-w-2xl mx-auto mt-12">
-            <h3 className={createTypography("h4", "mb-6 text-aureon-gold")}>
-              Design System & Typography Test
+        </div>
+      </section>
+
+      {/* Placeholder sections for future implementation */}
+      <section id="vision" className="min-h-screen flex items-center justify-center bg-background/50">
+        <div className="container mx-auto px-4 py-16 text-center">
+          <h2 className={createTypography("h2", "aureon-text-gradient mb-8")}>Notre Vision</h2>
+          <p className={createTypography("bodyLarge", "text-muted-foreground")}>
+            Section Vision - À implémenter dans les prochaines tâches
+          </p>
+        </div>
+      </section>
+
+      <section id="investments" className="min-h-screen flex items-center justify-center bg-background">
+        <div className="container mx-auto px-4 py-16 text-center">
+          <h2 className={createTypography("h2", "aureon-text-gradient mb-8")}>Domaines d&apos;Investissement</h2>
+          <p className={createTypography("bodyLarge", "text-muted-foreground")}>
+            Section Investissements - À implémenter dans les prochaines tâches
+          </p>
+        </div>
+      </section>
+
+      <section id="portfolio" className="min-h-screen flex items-center justify-center bg-background/50">
+        <div className="container mx-auto px-4 py-16 text-center">
+          <h2 className={createTypography("h2", "aureon-text-gradient mb-8")}>Projets Soutenus</h2>
+          <p className={createTypography("bodyLarge", "text-muted-foreground")}>
+            Section Portfolio - À implémenter dans les prochaines tâches
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" className="min-h-screen flex items-center justify-center bg-background">
+        <div className="container mx-auto px-4 py-16 text-center">
+          <h2 className={createTypography("h2", "aureon-text-gradient mb-8")}>Contact</h2>
+          <p className={createTypography("bodyLarge", "text-muted-foreground")}>
+            Section Contact - À implémenter dans les prochaines tâches
+          </p>
+        </div>
+      </section>
+
+      {/* Design System Test Card - Temporary for development */}
+      <section className="py-16 bg-background/30">
+        <div className="container mx-auto px-4">
+          <GlassCard className="p-8 max-w-4xl mx-auto">
+            <h3 className={createTypography("h4", "mb-6 text-aureon-gold text-center")}>
+              Layout & Navigation Test
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Typography Examples */}
+              {/* Navigation Status */}
               <div className="space-y-4">
-                <h4 className={createTypography("h5", "text-aureon-blue mb-3")}>Typography</h4>
-                <div className="space-y-2 text-left">
-                  <p className={createTypography("h6")}>Heading 6 - Satoshi Medium</p>
-                  <p className={createTypography("body")}>Body text - Inter Regular</p>
-                  <p className={createTypography("bodySmall", "text-muted-foreground")}>Small text - Inter Regular</p>
-                  <p className={createTypography("body", "aureon-text-gradient")}>Gradient text effect</p>
+                <h4 className={createTypography("h5", "text-aureon-blue mb-3")}>Navigation Features</h4>
+                <div className="space-y-2 text-left text-sm">
+                  <p>✅ Fixed header with glass morphism</p>
+                  <p>✅ Responsive mobile menu</p>
+                  <p>✅ Smooth scroll navigation</p>
+                  <p>✅ Framer Motion animations</p>
+                  <p>✅ Mobile hamburger menu</p>
+                  <p>✅ Slide-out panel</p>
                 </div>
               </div>
               
-              {/* Button Variants */}
+              {/* Layout Status */}
               <div className="space-y-4">
-                <h4 className={createTypography("h5", "text-aureon-blue mb-3")}>Button Variants</h4>
-                <div className="space-y-2">
-                  <Button variant="gold" size="sm" className="w-full">Gold Button</Button>
-                  <Button variant="glass" size="sm" className="w-full">Glass Button</Button>
-                  <Button variant="glass-gold" size="sm" className="w-full">Glass Gold</Button>
-                  <Button variant="outline-gold" size="sm" className="w-full">Outline Gold</Button>
+                <h4 className={createTypography("h5", "text-aureon-blue mb-3")}>Layout Structure</h4>
+                <div className="space-y-2 text-left text-sm">
+                  <p>✅ Root layout with providers</p>
+                  <p>✅ Framer Motion provider</p>
+                  <p>✅ Enhanced global styles</p>
+                  <p>✅ CSS reset implementation</p>
+                  <p>✅ Footer with golden accents</p>
+                  <p>✅ Social media links</p>
                 </div>
-              </div>
-            </div>
-            
-            {/* Input Examples */}
-            <div className="mt-6 space-y-4">
-              <h4 className={createTypography("h5", "text-aureon-blue")}>Glass Input Components</h4>
-              <div className="space-y-3">
-                <GlassInput placeholder="Nom complet" />
-                <GlassInput type="email" placeholder="Email" />
-                <GlassInput placeholder="Message" />
-              </div>
-            </div>
-            
-            {/* Status Checklist */}
-            <div className="mt-8 pt-6 border-t border-white/20">
-              <h4 className={createTypography("h5", "text-aureon-gold mb-4")}>Implementation Status</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-left">
-                <p>✅ Satoshi & Inter fonts configured</p>
-                <p>✅ Design tokens system</p>
-                <p>✅ AureonCapital color palette</p>
-                <p>✅ Glass morphism effects</p>
-                <p>✅ Custom button variants</p>
-                <p>✅ Glass input components</p>
-                <p>✅ Typography utilities</p>
-                <p>✅ Animation system ready</p>
               </div>
             </div>
           </GlassCard>
         </div>
-      </main>
-    </div>
+      </section>
+    </MainLayout>
   );
 }
