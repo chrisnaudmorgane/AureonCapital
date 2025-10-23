@@ -233,6 +233,22 @@
   border-radius: 1rem;
 }
 
+@utility backdrop-blur-glass {
+  backdrop-filter: blur(10px);
+}
+
+@utility shadow-glass {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+@utility shadow-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.1);
+}
+
+@utility shadow-glow-blue {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3), 0 0 40px rgba(56, 189, 248, 0.1);
+}
+
 @utility aureon-gradient {
   background: linear-gradient(135deg, #d4af37 0%, #38bdf8 100%);
 }
