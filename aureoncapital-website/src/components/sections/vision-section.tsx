@@ -5,6 +5,7 @@ import { createTypography, createGlassEffect } from "@/lib/glass-effects";
 import { sectionFadeIn, staggeredGrid, gridItemVariants } from "@/lib/animations";
 import { ScrollReveal, StaggeredReveal } from "@/components/animations/scroll-reveal";
 import { Lightbulb, TrendingUp } from "lucide-react";
+import { mobileOptimizedHover, getAnimationDuration } from "@/lib/mobile-animations";
 
 export function VisionSection() {
   return (
@@ -43,10 +44,13 @@ export function VisionSection() {
             childDelay={0.6}
           >
             {/* Innovation Icon */}
-            <div className={createGlassEffect("glassCard", "p-6 group hover:bg-white/15 transition-all duration-300")}>
-              <div className="flex flex-col items-center space-y-4">
-                <div className="p-4 rounded-full bg-aureon-gold/20 group-hover:bg-aureon-gold/30 transition-colors duration-300">
-                  <Lightbulb className="w-8 h-8 text-aureon-gold" />
+            <motion.div 
+              className={createGlassEffect("glassCard", "p-4 sm:p-6 group hover:bg-white/15 transition-all duration-300 touch-manipulation")}
+              {...mobileOptimizedHover}
+            >
+              <div className="flex flex-col items-center space-y-3 sm:space-y-4">
+                <div className="p-3 sm:p-4 rounded-full bg-aureon-gold/20 group-hover:bg-aureon-gold/30 transition-colors duration-300">
+                  <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-aureon-gold" />
                 </div>
                 <h3 className={createTypography("h5", "text-aureon-gold")}>
                   Innovation
@@ -55,13 +59,16 @@ export function VisionSection() {
                   Nous soutenons les idées révolutionnaires qui repoussent les limites de la technologie
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Growth Icon */}
-            <div className={createGlassEffect("glassCard", "p-6 group hover:bg-white/15 transition-all duration-300")}>
-              <div className="flex flex-col items-center space-y-4">
-                <div className="p-4 rounded-full bg-aureon-blue/20 group-hover:bg-aureon-blue/30 transition-colors duration-300">
-                  <TrendingUp className="w-8 h-8 text-aureon-blue" />
+            <motion.div 
+              className={createGlassEffect("glassCard", "p-4 sm:p-6 group hover:bg-white/15 transition-all duration-300 touch-manipulation")}
+              {...mobileOptimizedHover}
+            >
+              <div className="flex flex-col items-center space-y-3 sm:space-y-4">
+                <div className="p-3 sm:p-4 rounded-full bg-aureon-blue/20 group-hover:bg-aureon-blue/30 transition-colors duration-300">
+                  <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-aureon-blue" />
                 </div>
                 <h3 className={createTypography("h5", "text-aureon-blue")}>
                   Croissance
@@ -70,7 +77,7 @@ export function VisionSection() {
                   Nous accompagnons nos partenaires vers une croissance durable et profitable
                 </p>
               </div>
-            </div>
+            </motion.div>
           </StaggeredReveal>
         </ScrollReveal>
       </div>

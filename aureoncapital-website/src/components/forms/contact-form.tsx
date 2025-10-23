@@ -118,7 +118,7 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
   return (
     <motion.div
       className={cn(
-        createGlassEffect('glassCard', 'p-8 max-w-2xl mx-auto'),
+        createGlassEffect('glassCard', 'p-4 sm:p-6 md:p-8 max-w-2xl mx-auto'),
         className
       )}
       initial={{ opacity: 0, y: 20 }}
@@ -127,9 +127,9 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
       viewport={{ once: true }}
     >
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4 sm:space-y-6">
           {/* Form Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6 sm:mb-8">
             <h3 className={createTypography('h4', 'aureon-text-gradient mb-2')}>
               Contactez-nous
             </h3>
@@ -153,7 +153,7 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
                     {...field}
                     disabled={isLoading}
                     className={cn(
-                      'transition-all duration-300',
+                      'transition-all duration-300 h-12 text-base touch-manipulation',
                       form.formState.errors.nom && 'border-red-400 focus:border-red-400 focus:ring-red-400/30'
                     )}
                   />
@@ -179,7 +179,7 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
                     {...field}
                     disabled={isLoading}
                     className={cn(
-                      'transition-all duration-300',
+                      'transition-all duration-300 h-12 text-base touch-manipulation',
                       form.formState.errors.email && 'border-red-400 focus:border-red-400 focus:ring-red-400/30'
                     )}
                   />
@@ -201,11 +201,11 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
                 <FormControl>
                   <textarea
                     placeholder="Décrivez votre projet, vos besoins ou vos questions..."
-                    rows={5}
+                    rows={4}
                     {...field}
                     disabled={isLoading}
                     className={cn(
-                      'bg-aureon-glass backdrop-blur-glass border border-white/20 h-32 w-full min-w-0 rounded-lg px-4 py-3 text-base text-aureon-white shadow-glass transition-all duration-300 outline-none font-inter resize-none',
+                      'bg-aureon-glass backdrop-blur-glass border border-white/20 h-24 sm:h-32 w-full min-w-0 rounded-lg px-4 py-3 text-base text-aureon-white shadow-glass transition-all duration-300 outline-none font-inter resize-none touch-manipulation',
                       'placeholder:text-white/60 selection:bg-aureon-gold selection:text-aureon-dark',
                       'focus-visible:border-aureon-gold focus-visible:ring-aureon-gold/30 focus-visible:ring-[3px] focus-visible:bg-white/10',
                       'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
@@ -229,7 +229,7 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
               variant="gold"
               size="lg"
               disabled={isLoading || !form.formState.isValid}
-              className="w-full h-12 text-base font-semibold"
+              className="w-full h-12 sm:h-14 text-base font-semibold touch-manipulation"
             >
               {isLoading ? (
                 <>

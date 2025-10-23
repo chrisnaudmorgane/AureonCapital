@@ -102,11 +102,17 @@ export const designTokens = {
   },
   
   breakpoints: {
-    sm: '640px',
-    md: '768px',
-    lg: '1024px',
-    xl: '1280px',
-    '2xl': '1536px',
+    xs: '375px',    // Small mobile
+    sm: '640px',    // Large mobile
+    md: '768px',    // Tablet
+    lg: '1024px',   // Small desktop
+    xl: '1280px',   // Large desktop
+    '2xl': '1536px', // Extra large desktop
+    
+    // Mobile-first breakpoints for better responsive design
+    mobile: '767px',     // Max width for mobile
+    tablet: '1023px',    // Max width for tablet
+    desktop: '1024px',   // Min width for desktop
   }
 } as const;
 

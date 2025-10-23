@@ -94,16 +94,16 @@ export function Header() {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Enhanced touch target */}
             <button
-              className="lg:hidden p-2 text-white/80 hover:text-aureon-gold transition-colors"
+              className="lg:hidden p-3 -mr-3 text-white/80 hover:text-aureon-gold transition-colors touch-manipulation"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-7 w-7" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-7 w-7" />
               )}
             </button>
           </div>
@@ -123,44 +123,45 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
-            {/* Mobile Menu Panel */}
+            {/* Mobile Menu Panel - Enhanced mobile experience */}
             <motion.div
-              className="fixed top-0 right-0 h-full w-80 max-w-[80vw] glass-effect backdrop-blur-xl z-50 lg:hidden"
+              className="fixed top-0 right-0 h-full w-80 max-w-[85vw] glass-effect backdrop-blur-xl z-50 lg:hidden safe-area-inset-right"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             >
               <div className="flex flex-col h-full">
-                {/* Mobile Menu Header */}
+                {/* Mobile Menu Header - Enhanced touch targets */}
                 <div className="flex items-center justify-between p-6 border-b border-white/20">
                   <span className={createTypography('h6', 'aureon-text-gradient font-bold')}>
                     Menu
                   </span>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-white/80 hover:text-aureon-gold transition-colors"
+                    className="p-3 -mr-3 text-white/80 hover:text-aureon-gold transition-colors touch-manipulation"
                     aria-label="Close menu"
                   >
-                    <X className="h-5 w-5" />
+                    <X className="h-6 w-6" />
                   </button>
                 </div>
 
-                {/* Mobile Navigation Items */}
+                {/* Mobile Navigation Items - Enhanced touch targets and spacing */}
                 <nav className="flex-1 px-6 py-8">
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     {navigationItems.map((item, index) => (
                       <motion.button
                         key={item.name}
                         onClick={() => scrollToSection(item.href)}
                         className={createTypography(
                           'bodyLarge',
-                          'block w-full text-left text-white/80 hover:text-aureon-gold transition-colors duration-200'
+                          'block w-full text-left py-4 px-4 -mx-4 rounded-lg text-white/80 hover:text-aureon-gold hover:bg-white/5 transition-all duration-200 touch-manipulation'
                         )}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
                         whileHover={{ x: 8 }}
+                        whileTap={{ scale: 0.98 }}
                       >
                         {item.name}
                       </motion.button>
@@ -168,12 +169,12 @@ export function Header() {
                   </div>
                 </nav>
 
-                {/* Mobile CTA Button */}
+                {/* Mobile CTA Button - Enhanced touch target */}
                 <div className="p-6 border-t border-white/20">
                   <Button
                     variant="glass-gold"
                     size="lg"
-                    className="w-full"
+                    className="w-full h-12 text-base touch-manipulation"
                     onClick={() => scrollToSection('#contact')}
                   >
                     Nous contacter

@@ -108,9 +108,9 @@ export function InvestmentDomainsSection() {
             </p>
           </ScrollReveal>
 
-          {/* Investment Domains Grid */}
+          {/* Investment Domains Grid - Enhanced mobile layout */}
           <StaggeredReveal 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6"
             staggerDelay={0.15}
             childDelay={0.3}
             amount={0.2}
@@ -122,12 +122,12 @@ export function InvestmentDomainsSection() {
                 <motion.div
                   key={domain.id}
                   {...hoverVariants}
-                  className={createGlassEffect("glassCard", "p-6 group cursor-pointer")}
+                  className={createGlassEffect("glassCard", "p-4 sm:p-6 group cursor-pointer touch-manipulation")}
                 >
-                  <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
                     {/* Icon */}
-                    <div className={`p-4 rounded-full transition-all duration-300 ${domain.bgColor}`}>
-                      <IconComponent className={`w-8 h-8 ${domain.color}`} />
+                    <div className={`p-3 sm:p-4 rounded-full transition-all duration-300 ${domain.bgColor}`}>
+                      <IconComponent className={`w-6 h-6 sm:w-8 sm:h-8 ${domain.color}`} />
                     </div>
                     
                     {/* Domain Name */}
@@ -136,7 +136,7 @@ export function InvestmentDomainsSection() {
                     </h3>
                     
                     {/* Description */}
-                    <p className={createTypography("bodySmall", "text-white/70 group-hover:text-white/90 transition-colors duration-300")}>
+                    <p className={createTypography("bodySmall", "text-white/70 group-hover:text-white/90 transition-colors duration-300 text-center")}>
                       {domain.description}
                     </p>
                     

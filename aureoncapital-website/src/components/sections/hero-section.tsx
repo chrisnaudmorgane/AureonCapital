@@ -4,46 +4,31 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { createTypography } from "@/lib/glass-effects";
 import { AnimatedBackground } from "@/components/animations/animated-background";
+import { 
+  mobileOptimizedFadeIn, 
+  mobileOptimizedStagger, 
+  mobileOptimizedHover,
+  getAnimationDuration 
+} from "@/lib/mobile-animations";
 
 export function HeroSection() {
-  // Animation variants
+  // Mobile-optimized animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.8,
-        staggerChildren: 0.3,
+        duration: getAnimationDuration(0.8, 0.5),
+        staggerChildren: getAnimationDuration(0.3, 0.2),
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-  };
+  const itemVariants = mobileOptimizedFadeIn;
 
   const buttonVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-    hover: {
-      scale: 1.05,
-    },
-    tap: {
-      scale: 0.98,
-    },
+    ...mobileOptimizedFadeIn,
+    ...mobileOptimizedHover,
   };
 
   return (
@@ -54,10 +39,10 @@ export function HeroSection() {
       {/* Animated background */}
       <AnimatedBackground />
       
-      {/* Content container */}
-      <div className="relative z-10 container mx-auto px-4 py-16">
+      {/* Content container - Enhanced mobile spacing */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <motion.div 
-          className="text-center space-y-8 max-w-5xl mx-auto"
+          className="text-center space-y-6 sm:space-y-8 max-w-5xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -71,18 +56,18 @@ export function HeroSection() {
             Investir dans l&apos;intelligence du futur
           </motion.h1>
           
-          {/* Subtitle with responsive scaling */}
+          {/* Subtitle with enhanced mobile readability */}
           <motion.p 
-            className={createTypography("bodyLarge", "text-muted-foreground max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl leading-relaxed")}
+            className={createTypography("bodyLarge", "text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0")}
             variants={itemVariants}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
             AureonCapital, filiale d&apos;investissement d&apos;Aureon AI Group, investit dans l&apos;avenir de l&apos;intelligence artificielle et des technologies innovantes.
           </motion.p>
           
-          {/* Call-to-action buttons with responsive layout */}
+          {/* Call-to-action buttons with enhanced mobile layout */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-6 sm:pt-8 px-4 sm:px-0"
             variants={itemVariants}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
           >
@@ -91,11 +76,12 @@ export function HeroSection() {
               whileHover="hover"
               whileTap="tap"
               transition={{ duration: 0.2, ease: "easeInOut" }}
+              className="w-full sm:w-auto"
             >
               <Button 
                 size="lg" 
                 variant="gold"
-                className="w-full sm:w-auto text-base md:text-lg px-8 py-4 h-auto transition-all duration-300 hover:shadow-glow"
+                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto min-h-[48px] transition-all duration-300 hover:shadow-glow touch-manipulation"
               >
                 Découvrir nos investissements
               </Button>
@@ -106,11 +92,12 @@ export function HeroSection() {
               whileHover="hover"
               whileTap="tap"
               transition={{ duration: 0.2, ease: "easeInOut" }}
+              className="w-full sm:w-auto"
             >
               <Button 
                 size="lg" 
                 variant="outline-blue"
-                className="w-full sm:w-auto text-base md:text-lg px-8 py-4 h-auto transition-all duration-300 hover:shadow-glow-blue"
+                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto min-h-[48px] transition-all duration-300 hover:shadow-glow-blue touch-manipulation"
               >
                 Rejoindre le portefeuille
               </Button>

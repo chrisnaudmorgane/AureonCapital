@@ -53,7 +53,7 @@ export function PortfolioSection() {
               </p>
             </motion.div>
 
-            {/* Portfolio Carousel */}
+            {/* Portfolio Carousel - Enhanced mobile experience */}
             <motion.div variants={itemVariants} className="relative">
               <div className="max-w-6xl mx-auto">
                 <Carousel
@@ -61,10 +61,10 @@ export function PortfolioSection() {
                   autoPlayInterval={6000}
                   showIndicators={true}
                   showNavigation={true}
-                  className="h-[500px] md:h-[400px]"
+                  className="h-[400px] sm:h-[450px] md:h-[400px]"
                 >
                   {portfolioData.map((item, index) => (
-                    <div key={item.id} className="px-4 h-full flex items-center">
+                    <div key={item.id} className="px-2 sm:px-4 h-full flex items-center">
                       <PortfolioItemComponent 
                         item={item}
                         isActive={true}

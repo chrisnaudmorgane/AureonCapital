@@ -70,7 +70,26 @@ const config: Config = {
         inter: designTokens.fonts.secondary,
         mono: designTokens.fonts.mono,
       },
-      spacing: designTokens.spacing,
+      spacing: {
+        ...designTokens.spacing,
+        // Enhanced mobile spacing
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left': 'env(safe-area-inset-left)',
+        'safe-right': 'env(safe-area-inset-right)',
+      },
+      screens: {
+        'xs': '375px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        // Mobile-first breakpoints
+        'mobile': {'max': '767px'},
+        'tablet': {'min': '768px', 'max': '1023px'},
+        'desktop': {'min': '1024px'},
+      },
       borderRadius: {
         ...designTokens.borderRadius,
         lg: "var(--radius)",

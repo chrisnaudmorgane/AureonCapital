@@ -46,20 +46,20 @@ export const animations = {
   hoverLift: "hover:-translate-y-1 transition-transform duration-300",
 } as const;
 
-// Typography classes using Satoshi font
+// Typography classes using Satoshi font with enhanced mobile scaling
 export const typography = {
-  // Headings with Satoshi
-  h1: "font-satoshi font-bold text-4xl md:text-6xl lg:text-7xl",
-  h2: "font-satoshi font-semibold text-3xl md:text-4xl lg:text-5xl",
-  h3: "font-satoshi font-medium text-2xl md:text-3xl",
-  h4: "font-satoshi font-medium text-xl md:text-2xl",
-  h5: "font-satoshi font-medium text-lg md:text-xl",
-  h6: "font-satoshi font-medium text-base md:text-lg",
+  // Headings with Satoshi - Enhanced mobile scaling
+  h1: "font-satoshi font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight",
+  h2: "font-satoshi font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight",
+  h3: "font-satoshi font-medium text-xl sm:text-2xl md:text-3xl leading-tight",
+  h4: "font-satoshi font-medium text-lg sm:text-xl md:text-2xl leading-tight",
+  h5: "font-satoshi font-medium text-base sm:text-lg md:text-xl leading-tight",
+  h6: "font-satoshi font-medium text-sm sm:text-base md:text-lg leading-tight",
   
-  // Body text with Inter
-  body: "font-inter text-base leading-relaxed",
-  bodyLarge: "font-inter text-lg leading-relaxed",
-  bodySmall: "font-inter text-sm leading-relaxed",
+  // Body text with Inter - Enhanced mobile readability
+  body: "font-inter text-sm sm:text-base leading-relaxed",
+  bodyLarge: "font-inter text-base sm:text-lg md:text-xl leading-relaxed",
+  bodySmall: "font-inter text-xs sm:text-sm leading-relaxed",
   
   // Special text effects
   gradient: "aureon-text-gradient",

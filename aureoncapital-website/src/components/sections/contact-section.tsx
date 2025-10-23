@@ -95,9 +95,9 @@ export function ContactSection() {
           </motion.p>
         </motion.div>
 
-        {/* Contact Stats */}
+        {/* Contact Stats - Enhanced mobile layout */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -106,7 +106,7 @@ export function ContactSection() {
           {contactStats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              className={createGlassEffect('glassCard', 'p-6 text-center')}
+              className={createGlassEffect('glassCard', 'p-4 sm:p-6 text-center touch-manipulation')}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
@@ -128,7 +128,7 @@ export function ContactSection() {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
