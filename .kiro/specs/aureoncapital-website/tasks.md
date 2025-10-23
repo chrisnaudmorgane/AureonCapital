@@ -81,6 +81,7 @@
 
 
 
+
   - [x] 4.1 Create hero section layout
 
 
@@ -105,20 +106,30 @@
     - Add hover effects for call-to-action buttons
     - _Requirements: 6.4, 6.5_
 
-- [ ] 5. Build vision and investment domains sections
-  - [ ] 5.1 Create vision section component
+- [x] 5. Build vision and investment domains sections
+
+
+
+
+  - [x] 5.1 Create vision section component
+
+
     - Implement centered text layout for company philosophy
     - Add innovation and growth icons
     - Create scroll-triggered reveal animation
     - _Requirements: 2.1, 2.5_
   
-  - [ ] 5.2 Develop investment domains grid
+  - [x] 5.2 Develop investment domains grid
+
+
     - Create animated grid layout for investment areas
     - Build stylized icons for IA, FinTech, Automatisation, SaaS, Data Intelligence
     - Implement hover animations and visual feedback
     - _Requirements: 2.2, 2.3, 2.4_
   
-  - [ ] 5.3 Add section transition animations
+  - [x] 5.3 Add section transition animations
+
+
     - Create smooth scroll-triggered animations between sections
     - Implement staggered grid item animations
     - Optimize animation performance for mobile devices
