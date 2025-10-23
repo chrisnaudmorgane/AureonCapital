@@ -1,34 +1,13 @@
 import { MainLayout } from "@/components/layout/main-layout";
-import { Button } from "@/components/ui/button";
+import { HeroSection } from "@/components/sections/hero-section";
 import { GlassCard } from "@/components/ui/card";
-import { GlassInput } from "@/components/ui/input";
 import { createTypography } from "@/lib/glass-effects";
 
 export default function Home() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center bg-background text-foreground">
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center space-y-8">
-            <h1 className={createTypography("h1", "aureon-text-gradient")}>
-              Investir dans l&apos;intelligence du futur
-            </h1>
-            <p className={createTypography("bodyLarge", "text-muted-foreground max-w-2xl mx-auto")}>
-              AureonCapital, filiale d&apos;investissement d&apos;Aureon AI Group, investit dans l&apos;avenir de l&apos;intelligence artificielle et des technologies innovantes.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="gold">
-                Découvrir nos investissements
-              </Button>
-              <Button size="lg" variant="outline-blue">
-                Rejoindre le portefeuille
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Placeholder sections for future implementation */}
       <section id="vision" className="min-h-screen flex items-center justify-center bg-background/50">
