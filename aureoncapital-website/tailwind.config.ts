@@ -148,6 +148,11 @@ const config: Config = {
       backdropBlur: {
         'glass': '10px',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-aureon': 'linear-gradient(135deg, var(--aureon-gold) 0%, var(--aureon-blue) 100%)',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

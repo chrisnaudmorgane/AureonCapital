@@ -11,7 +11,7 @@ export function VisionSection() {
   return (
     <section id="vision" className="min-h-screen flex items-center justify-center bg-background/50 py-20">
       <div className="container mx-auto px-4">
-        <ScrollReveal className="max-w-4xl mx-auto text-center" amount={0.3}>
+        <ScrollReveal className="max-w-4xl mx-auto text-center" threshold={0.3}>
           {/* Section Title */}
           <ScrollReveal delay={0.2}>
             <h2 className={createTypography("h2", "aureon-text-gradient mb-8")}>

@@ -1,0 +1,13 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="saas-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="24" cy="36" rx="16" ry="4" fill="url(#saas-gradient)" opacity="0.3"/>
+  <ellipse cx="24" cy="24" rx="12" ry="3" fill="url(#saas-gradient)" opacity="0.5"/>
+  <ellipse cx="24" cy="12" rx="8" ry="2" fill="url(#saas-gradient)"/>
+  <path d="M8 36C8 32 14 28 24 28C34 28 40 32 40 36" stroke="url(#saas-gradient)" stroke-width="2" fill="none"/>
+  <path d="M12 24C12 21 16 18 24 18C32 18 36 21 36 24" stroke="url(#saas-gradient)" stroke-width="2" fill="none"/>
+</svg>

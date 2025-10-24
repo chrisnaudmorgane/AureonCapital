@@ -98,7 +98,7 @@ export function InvestmentDomainsSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Title */}
-          <ScrollReveal className="text-center mb-16" amount={0.3}>
+          <ScrollReveal className="text-center mb-16" threshold={0.3}>
             <h2 className={createTypography("h2", "aureon-text-gradient mb-6")}>
               Domaines d&apos;Investissement
             </h2>
@@ -113,7 +113,6 @@ export function InvestmentDomainsSection() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6"
             staggerDelay={0.15}
             childDelay={0.3}
-            amount={0.2}
           >
             {investmentDomains.map((domain, index) => {
               const IconComponent = domain.icon;

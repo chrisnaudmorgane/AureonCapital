@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 import { createTypography } from '@/lib/glass-effects';
 
 const navigationItems = [
@@ -38,11 +39,10 @@ export function Header() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'glass-effect backdrop-blur-md border-b border-white/20'
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'glass-effect backdrop-blur-md border-b border-white/20'
+          : 'bg-transparent'
+          }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -57,9 +57,20 @@ export function Header() {
             >
               <button
                 onClick={() => scrollToSection('#hero')}
-                className={createTypography('h5', 'aureon-text-gradient font-bold')}
+                className="flex items-center space-x-3"
               >
-                AureonCapital
+                <OptimizedImage
+                  src="/images/logos/aureon_capital.png"
+                  alt="AureonCapital Logo"
+                  width={56}
+                  height={56}
+                  className="w-14 h-14 rounded-full object-cover"
+                  priority={true}
+                  quality={90}
+                />
+                <span className={createTypography('h5', 'aureon-text-gradient font-bold hidden sm:block')}>
+                  AureonCapital
+                </span>
               </button>
             </motion.div>
 
@@ -134,9 +145,20 @@ export function Header() {
               <div className="flex flex-col h-full">
                 {/* Mobile Menu Header - Enhanced touch targets */}
                 <div className="flex items-center justify-between p-6 border-b border-white/20">
-                  <span className={createTypography('h6', 'aureon-text-gradient font-bold')}>
-                    Menu
-                  </span>
+                  <div className="flex items-center space-x-3">
+                    <OptimizedImage
+                      src="/images/logos/aureon_capital.png"
+                      alt="AureonCapital Logo"
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 rounded-full object-cover"
+                      priority={true}
+                      quality={90}
+                    />
+                    <span className={createTypography('h6', 'aureon-text-gradient font-bold')}>
+                      AureonCapital
+                    </span>
+                  </div>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-3 -mr-3 text-white/80 hover:text-aureon-gold transition-colors touch-manipulation"

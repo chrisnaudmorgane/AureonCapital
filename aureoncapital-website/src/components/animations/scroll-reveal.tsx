@@ -1,164 +1,133 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, ReactNode } from "react";
+import { useMotionVariants } from "@/hooks/use-reduced-motion";
 
 interface ScrollRevealProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   delay?: number;
-  duration?: number;
-  direction?: 'up' | 'down' | 'left' | 'right';
-  amount?: number;
+  direction?: "up" | "down" | "left" | "right";
+  distance?: number;
   once?: boolean;
+  threshold?: number;
 }
 
 export function ScrollReveal({
   children,
   className = "",
   delay = 0,
-  duration = 0.6,
-  direction = 'up',
-  amount = 0.3,
-  once = true
+  direction = "up",
+  distance = 50,
+  once = true,
+  threshold = 0.1,
 }: ScrollRevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount, once });
-  const [isMobile, setIsMobile] = useState(false);
+  const isInView = useInView(ref, { 
+    once,
+    margin: "-10% 0px -10% 0px",
+    amount: threshold
+  });
+  const variants = useMotionVariants();
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const getInitialPosition = () => {
-    const distance = isMobile ? 30 : 60; // Reduced motion for mobile
-    switch (direction) {
-      case 'up':
-        return { y: distance };
-      case 'down':
-        return { y: -distance };
-      case 'left':
-        return { x: distance };
-      case 'right':
-        return { x: -distance };
-      default:
-        return { y: distance };
-    }
+  const directionOffset = {
+    up: { y: distance },
+    down: { y: -distance },
+    left: { x: distance },
+    right: { x: -distance },
   };
 
-  const variants = {
+  const animationVariants = {
     hidden: {
       opacity: 0,
-      scale: 0.95,
-      ...getInitialPosition()
+      ...directionOffset[direction],
     },
     visible: {
       opacity: 1,
-      scale: 1,
       x: 0,
       y: 0,
-      transition: {
-        duration: isMobile ? duration * 0.7 : duration, // Faster on mobile
-        delay,
-        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number]
-      }
-    }
+    },
+  };
+
+  const animationTransition = {
+    duration: 0.6,
+    delay,
+    ease: "easeOut" as const,
   };
 
   return (
     <motion.div
       ref={ref}
+      className={className}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={variants}
-      className={className}
+      variants={animationVariants}
+      transition={animationTransition}
     >
       {children}
     </motion.div>
   );
 }
 
-// Staggered children reveal for grids and lists
 interface StaggeredRevealProps {
-  children: React.ReactNode;
+  children: ReactNode[];
   className?: string;
   staggerDelay?: number;
   childDelay?: number;
-  amount?: number;
-  once?: boolean;
 }
 
 export function StaggeredReveal({
   children,
   className = "",
   staggerDelay = 0.1,
-  childDelay = 0.2,
-  amount = 0.2,
-  once = true
+  childDelay = 0,
 }: StaggeredRevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount, once });
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isInView = useInView(ref, { 
+    once: true,
+    margin: "-10% 0px -10% 0px"
+  });
 
   const containerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: isMobile ? staggerDelay * 0.7 : staggerDelay,
-        delayChildren: childDelay
-      }
-    }
+        staggerChildren: staggerDelay,
+        delayChildren: childDelay,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: isMobile ? 30 : 50,
-      scale: 0.9
+      y: 30,
     },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      transition: {
-        duration: isMobile ? 0.4 : 0.6,
-        ease: "easeOut" as const
-      }
-    }
+    },
+  };
+
+  const itemTransition = {
+    duration: 0.5,
+    ease: "easeOut" as const,
   };
 
   return (
     <motion.div
       ref={ref}
+      className={className}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className={className}
     >
-      {Array.isArray(children) 
-        ? children.map((child, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              {child}
-            </motion.div>
-          ))
-        : <motion.div variants={itemVariants}>{children}</motion.div>
-      }
+      {children.map((child, index) => (
+        <motion.div key={index} variants={itemVariants} transition={itemTransition}>
+          {child}
+        </motion.div>
+      ))}
     </motion.div>
   );
 }

@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { PortfolioItem } from "@/lib/portfolio-data";
 import { GlassCard } from "@/components/ui/card";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 import { createTypography } from "@/lib/glass-effects";
 import { ExternalLink } from "lucide-react";
 
@@ -24,23 +24,33 @@ export function PortfolioItemComponent({ item, isActive = false, onClick }: Port
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <GlassCard 
-        className={`p-6 h-full transition-all duration-300 ${
-          isActive 
-            ? 'ring-2 ring-aureon-gold/50 bg-white/15' 
+      <GlassCard
+        className={`p-6 h-full transition-all duration-300 ${isActive
+            ? 'ring-2 ring-aureon-gold/50 bg-white/15'
             : 'hover:bg-white/10'
-        }`}
+          }`}
       >
         {/* Logo Section */}
         <div className="flex justify-center mb-6">
           <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-aureon-gold/20 to-aureon-blue/20 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-              {/* Placeholder for logo - will be replaced with actual logos */}
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-aureon-gold to-aureon-blue flex items-center justify-center">
-                <span className={createTypography("h5", "text-white font-bold")}>
-                  {item.name.charAt(0)}
-                </span>
-              </div>
+            <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center overflow-hidden">
+              {item.logo ? (
+                <OptimizedImage
+                  src={item.logo}
+                  alt={`${item.name} logo`}
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 rounded-full object-cover"
+                  priority={isActive}
+                  quality={90}
+                />
+              ) : (
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-aureon-gold to-aureon-blue flex items-center justify-center">
+                  <span className={createTypography("h5", "text-white font-bold")}>
+                    {item.name.charAt(0)}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ export const portfolioData: PortfolioItem[] = [
     id: "aureonlabs",
     name: "AureonLabs",
     description: "Laboratoire de recherche et développement en intelligence artificielle, pionnier dans l'innovation technologique et les solutions d'IA avancées.",
-    logo: "/images/portfolio/aureonlabs-logo.svg",
+    logo: "/images/logos/aureon_labs.png",
     category: "AI Research",
     website: "https://aureonlabs.ai",
     technologies: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP"]
@@ -24,7 +24,7 @@ export const portfolioData: PortfolioItem[] = [
     id: "aureonstudio",
     name: "AureonStudio",
     description: "Studio créatif spécialisé dans le design d'expériences utilisateur et l'interface homme-machine pour les applications d'intelligence artificielle.",
-    logo: "/images/portfolio/aureonstudio-logo.svg",
+    logo: "/images/logos/aureon_studio.png",
     category: "Design & UX",
     website: "https://aureonstudio.com",
     technologies: ["UI/UX Design", "Prototyping", "Design Systems", "User Research"]
@@ -33,7 +33,7 @@ export const portfolioData: PortfolioItem[] = [
     id: "aureondigital",
     name: "AureonDigital",
     description: "Agence de transformation digitale qui accompagne les entreprises dans leur adoption de l'intelligence artificielle et des technologies émergentes.",
-    logo: "/images/portfolio/aureondigital-logo.svg",
+    logo: "/images/logos/aureon_digital.png",
     category: "Digital Transformation",
     website: "https://aureondigital.com",
     technologies: ["Digital Strategy", "AI Integration", "Process Automation", "Cloud Solutions"]
@@ -42,7 +42,7 @@ export const portfolioData: PortfolioItem[] = [
     id: "aureonverse",
     name: "AureonVerse",
     description: "Plateforme immersive combinant réalité virtuelle et intelligence artificielle pour créer des expériences interactives révolutionnaires.",
-    logo: "/images/portfolio/aureonverse-logo.svg",
+    logo: "/images/logos/aureonverse.svg",
     category: "Immersive Technology",
     website: "https://aureonverse.com",
     technologies: ["Virtual Reality", "Augmented Reality", "3D Graphics", "Spatial Computing"]
